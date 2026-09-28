@@ -7,6 +7,7 @@ import { CoursePreview } from "@/components/course-details/CoursePreview";
 import { CourseSidebar } from "@/components/course-details/CourseSidebar";
 import { CourseTabs, CourseTabsView } from "@/components/course-details/CourseTabs";
 import { LessonsTab } from "@/components/course-details/LessonsTab";
+import { ReviewsTab } from "@/components/course-details/ReviewsTab";
 import { Container } from "@/components/layout/Container";
 import { Footer } from "@/components/layout/Footer";
 import { GridBackground } from "@/components/layout/GridBackground";
@@ -27,15 +28,6 @@ export async function generateMetadata({
   return { title: data.details.title, description: data.details.subtitle };
 }
 
-function ComingSoon({ title }: { title: string }) {
-  return (
-    <div className="flex flex-col items-center gap-2 rounded-3xl border border-dashed border-shuttle-200 px-6 py-20 text-center">
-      <h2 className="font-heading text-heading-xs">{title} are coming soon</h2>
-      <p className="text-body-m text-shuttle-400">Check back shortly.</p>
-    </div>
-  );
-}
-
 export default async function CourseDetailsPage({ params }: PageProps<"/courses/[slug]">) {
   const { slug } = await params;
   const data = getCourseDetails(slug);
@@ -45,12 +37,11 @@ export default async function CourseDetailsPage({ params }: PageProps<"/courses/
   const panels = {
     about: <AboutTab details={details} />,
     lessons: <LessonsTab details={details} />,
-    reviews: <ComingSoon title="Reviews" />,
+    reviews: <ReviewsTab details={details} />,
   };
 
   return (
     <>
-      {/* The blue band is 957px at 1440; the video and enroll card start inside it at 416. */}
       <GridBackground className="xl:h-[957px]">
         <Header active="courses" />
         <Container className="pt-6 pb-12 lg:pt-[52px] xl:pb-0">
