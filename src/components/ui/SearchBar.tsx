@@ -5,15 +5,20 @@ import { Input } from "./Input";
 
 type SearchBarProps = {
   defaultValue?: string;
+  placeholder?: string;
   scopeLabel?: string;
+  /** Replaces the scope dropdown with a plain submit button (home hero). */
+  submitLabel?: string;
   action?: string;
   className?: string;
 };
 
-/** "Find Your Next Course" search: white field + lime scope button. */
+/** White search field + lime button: scope dropdown on /courses, submit button on the home hero. */
 export function SearchBar({
   defaultValue,
+  placeholder = "Search",
   scopeLabel = "Courses",
+  submitLabel,
   action = "/courses",
   className,
 }: SearchBarProps) {
@@ -27,15 +32,19 @@ export function SearchBar({
         type="search"
         name="q"
         aria-label="Search courses"
-        placeholder="Search"
+        placeholder={placeholder}
         defaultValue={defaultValue}
         bordered={false}
         icon={<SearchIcon className="shrink-0" />}
         wrapperClassName="sm:w-[461px] sm:shrink-0"
       />
-      <Button type="button" rightIcon={<ChevronDownIcon />} aria-haspopup="listbox">
-        {scopeLabel}
-      </Button>
+      {submitLabel ? (
+        <Button type="submit">{submitLabel}</Button>
+      ) : (
+        <Button type="button" rightIcon={<ChevronDownIcon />} aria-haspopup="listbox">
+          {scopeLabel}
+        </Button>
+      )}
     </form>
   );
 }
