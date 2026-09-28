@@ -9,8 +9,8 @@ export function LogosSection() {
         <h2 id="partners-heading" className="sr-only">
           Trusted by
         </h2>
-        {/* Row is 1132px at 1440; below lg it wraps into centred rows. */}
-        <ul className="flex flex-wrap items-end justify-center gap-x-8 gap-y-6 sm:gap-x-12 sm:gap-y-8 lg:flex-nowrap lg:gap-[72px]">
+        {/* Row is 1132px at 1440; below xl it wraps into centred rows. */}
+        <ul className="flex flex-wrap items-end justify-center gap-x-8 gap-y-6 sm:gap-x-12 sm:gap-y-8 xl:flex-nowrap xl:gap-[72px]">
           {partnerLogos.map((logo) => (
             <li key={logo.src} className="shrink-0">
               <Image
