@@ -6,6 +6,7 @@ import { CourseHero } from "@/components/course-details/CourseHero";
 import { CoursePreview } from "@/components/course-details/CoursePreview";
 import { CourseSidebar } from "@/components/course-details/CourseSidebar";
 import { CourseTabs, CourseTabsView } from "@/components/course-details/CourseTabs";
+import { LessonsTab } from "@/components/course-details/LessonsTab";
 import { Container } from "@/components/layout/Container";
 import { Footer } from "@/components/layout/Footer";
 import { GridBackground } from "@/components/layout/GridBackground";
@@ -43,7 +44,7 @@ export default async function CourseDetailsPage({ params }: PageProps<"/courses/
 
   const panels = {
     about: <AboutTab details={details} />,
-    lessons: <ComingSoon title="Lessons" />,
+    lessons: <LessonsTab details={details} />,
     reviews: <ComingSoon title="Reviews" />,
   };
 
@@ -59,7 +60,7 @@ export default async function CourseDetailsPage({ params }: PageProps<"/courses/
 
       <Container
         as="main"
-        className="relative grid flex-1 gap-10 pt-10 pb-16 lg:grid-cols-[minmax(0,1fr)_360px] lg:gap-x-8 xl:-mt-[541px] xl:grid-cols-[minmax(0,1fr)_412px] xl:gap-x-[63px] xl:gap-y-[124.5px] xl:pt-0"
+        className="relative grid flex-1 content-start gap-10 pt-10 pb-16 lg:grid-cols-[minmax(0,1fr)_360px] lg:gap-x-8 xl:-mt-[541px] xl:grid-cols-[minmax(0,1fr)_412px] xl:gap-x-[63px] xl:gap-y-[124.5px] xl:pt-0"
       >
         <CoursePreview
           image={details.preview}
