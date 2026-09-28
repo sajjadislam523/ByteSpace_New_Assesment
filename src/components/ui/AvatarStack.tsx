@@ -31,6 +31,7 @@ export function AvatarStack({ avatars, extra, size = 32, className }: AvatarStac
         <span
           className={cn(
             "flex shrink-0 items-center justify-center rounded-full bg-accent text-label-xs leading-5 text-shuttle-950",
+            size === 43 && "font-bold leading-normal",
             avatars.length > 0 && overlap,
           )}
           style={{ width: size, height: size }}

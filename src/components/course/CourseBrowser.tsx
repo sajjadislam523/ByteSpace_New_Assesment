@@ -6,7 +6,7 @@ import { CategoryChips } from "@/components/ui/CategoryChips";
 import { FilterBar } from "@/components/ui/FilterBar";
 import { Pagination } from "@/components/ui/Pagination";
 import { categories, COURSES_PER_PAGE, filterCatalog } from "@/data/courses";
-import { CourseCard } from "./CourseCard";
+import { CourseGrid } from "./CourseGrid";
 
 type CourseBrowserProps = {
   initialCategory?: string;
@@ -72,22 +72,7 @@ export function CourseBrowser({
           </p>
         )}
 
-        {visible.length > 0 ? (
-          <ul className="grid grid-cols-1 justify-items-center gap-10 md:grid-cols-2 xl:grid-cols-3">
-            {visible.map(({ id, course }, index) => (
-              <li key={id} className="flex w-full justify-center">
-                <CourseCard course={course} priority={index < 3} />
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <div className="flex flex-col items-center gap-2 rounded-3xl border border-dashed border-shuttle-200 px-6 py-20 text-center">
-            <p className="font-heading text-heading-xs">No courses found</p>
-            <p className="text-body-m text-shuttle-400">
-              Try another category or search term.
-            </p>
-          </div>
-        )}
+        <CourseGrid entries={visible} />
       </div>
 
       {visible.length > 0 && (

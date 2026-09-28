@@ -10,6 +10,7 @@
   --color-accent-hover: #c3ea0b;
 
   --color-shuttle-50: #f5f5f6;
+  --color-shuttle-100: #e5e6e8;
   --color-shuttle-200: #ced0d3;
   --color-shuttle-400: #82868e;
   --color-shuttle-700: #4b4c53;
@@ -20,6 +21,16 @@
   --color-grid-line: rgb(255 255 255 / 0.24);
 
   /* Headings */
+  --text-heading-l: 72px;
+  --text-heading-l--line-height: 1.2;
+  --text-heading-l--letter-spacing: -0.72px;
+  --text-heading-l--font-weight: 600;
+
+  --text-heading-m: 44px;
+  --text-heading-m--line-height: 1.2;
+  --text-heading-m--letter-spacing: -0.44px;
+  --text-heading-m--font-weight: 600;
+
   --text-heading-s: 36px;
   --text-heading-s--line-height: 1.2;
   --text-heading-s--letter-spacing: -0.36px;
@@ -41,6 +52,9 @@
   --text-body-xs--line-height: 1.6;
 
   /* Labels */
+  --text-label-xl: 20px;
+  --text-label-xl--line-height: 1.2;
+  --text-label-xl--font-weight: 500;
   --text-label-l: 18px;
   --text-label-l--line-height: 1.2;
   --text-label-l--font-weight: 500;
