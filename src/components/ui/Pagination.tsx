@@ -7,7 +7,6 @@ type PaginationProps = {
   page: number;
   totalPages: number;
   onPageChange: (page: number) => void;
-  /** How many page numbers to show at once. */
   visiblePages?: number;
   className?: string;
 };

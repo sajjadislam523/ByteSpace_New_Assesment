@@ -5,7 +5,6 @@ import { validateAuth, type AuthErrors, type AuthField } from "./validation";
 
 type Status = "idle" | "submitting" | "success";
 
-/** Submit + validation state shared by the Sign In and Register forms. */
 export function useAuthForm(fields: readonly AuthField[]) {
   const [errors, setErrors] = useState<AuthErrors>({});
   const [status, setStatus] = useState<Status>("idle");
@@ -27,12 +26,10 @@ export function useAuthForm(fields: readonly AuthField[]) {
     }
 
     setStatus("submitting");
-    // TODO: send `values` to the auth API (sign in / register) once the backend exists.
     await new Promise((resolve) => setTimeout(resolve, 800));
     setStatus("success");
   }
 
-  // Clears a field's error as soon as the user edits it.
   function handleChange(event: FormEvent<HTMLFormElement>) {
     const name = (event.target as HTMLInputElement).name as AuthField;
     if (errors[name]) setErrors((current) => ({ ...current, [name]: undefined }));

@@ -9,7 +9,6 @@ export function NewsletterForm() {
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    // TODO: connect to the newsletter API
     setSubmitted(true);
     setEmail("");
   }

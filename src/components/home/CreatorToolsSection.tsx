@@ -11,8 +11,6 @@ export function CreatorToolsSection() {
     <section aria-labelledby="creator-heading" className="py-12 lg:pt-18 lg:pb-[120px]">
       <Container>
         <div className="flex flex-col items-center gap-12 xl:flex-row xl:gap-[79px]">
-          {/* md+: Figma layers at their 541 × 596 offsets (revenue cards sit under the photo).
-              Below md: photo, then the cards. */}
           <div className="relative flex w-full max-w-[541px] shrink-0 flex-col items-center gap-4 md:block md:h-[596px]">
             <RevenueCard
               {...creatorRevenue.total}
@@ -26,7 +24,6 @@ export function CreatorToolsSection() {
               className="relative aspect-[435/596] w-full max-w-[435px] overflow-hidden max-md:order-first md:absolute md:top-0 md:left-7 md:w-[435px]"
               style={{ filter: photoShadow }}
             >
-              {/* Figma crop: the square photo drawn at 157% width, shifted left, top-aligned. */}
               <Image
                 src="/images/home/growth/creator-person.png"
                 alt="Smiling student with headphones holding a tablet"

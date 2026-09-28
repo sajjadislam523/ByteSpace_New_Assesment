@@ -1,5 +1,3 @@
-// Figma effect "A" on the cut-out photos. drop-shadow follows the transparent PNG,
-// box-shadow would draw a rectangle.
 export const photoShadow = [
   "drop-shadow(0.518px 0.741px 3.036px rgb(0 0 0 / 0.04))",
   "drop-shadow(2.233px 3.19px 5.723px rgb(0 0 0 / 0.06))",

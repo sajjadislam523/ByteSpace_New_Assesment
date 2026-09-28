@@ -12,7 +12,6 @@ export type Course = {
   category: string;
   rating: number;
   price: number;
-  /** Shown after the price, e.g. "/lifetime". */
   priceSuffix?: string;
   students: {
     avatars: { src: string; alt: string }[];

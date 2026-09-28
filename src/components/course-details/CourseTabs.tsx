@@ -19,7 +19,6 @@ type CourseTabsViewProps = {
   onValueChange?: (value: string) => void;
 };
 
-/** About / Lessons / Reviews chips. Also used as the static fallback before search params load. */
 export function CourseTabsView({ panels, value, onValueChange }: CourseTabsViewProps) {
   return (
     <Tabs
@@ -34,7 +33,6 @@ function isCourseTab(value: string | null): value is CourseTab {
   return tabs.some((tab) => tab.value === value);
 }
 
-/** Keeps the selected tab in `?tab=` so every view has its own shareable URL. */
 export function CourseTabs({ panels }: { panels: Panels }) {
   const router = useRouter();
   const pathname = usePathname();

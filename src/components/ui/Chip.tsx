@@ -3,7 +3,6 @@ import { cn } from "@/lib/cn";
 
 type ChipProps = ComponentProps<"button"> & { active?: boolean };
 
-/** 43px pill used by category filters and page tabs. */
 export function Chip({ active = false, className, ...props }: ChipProps) {
   return (
     <button

@@ -5,14 +5,11 @@ import { Header } from "@/components/layout/Header";
 import { AuthCollage } from "./AuthCollage";
 
 type AuthLayoutProps = {
-  /** Small intro title in the left column, e.g. "Sign in with ease". */
   title: string;
   description: string;
-  /** The form, rendered inside the white card. */
   children: ReactNode;
 };
 
-/** Sign In / Register page: blue grid, logo-only header, intro + collage on the left, form card on the right. */
 export function AuthLayout({ title, description, children }: AuthLayoutProps) {
   return (
     <GridBackground className="min-h-screen xl:min-h-[1024px]">
@@ -26,8 +23,6 @@ export function AuthLayout({ title, description, children }: AuthLayoutProps) {
             <p className="font-heading text-heading-xs">{title}</p>
             <p className="text-body-m sm:text-body-l">{description}</p>
           </div>
-          {/* Figma places the collage at 97, 305 in the frame: 25px left of the text, 185px down.
-              Below 1440 it is scaled down so it never reaches the form card. */}
           <AuthCollage className="top-[185px] left-[-25px] hidden origin-top-left lg:block lg:max-xl:scale-[0.56] xl:max-[1440px]:scale-[0.84]" />
         </div>
 

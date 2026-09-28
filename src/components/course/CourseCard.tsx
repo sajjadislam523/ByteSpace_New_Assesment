@@ -9,13 +9,10 @@ import type { Course } from "@/types/course";
 type CourseCardProps = {
   course: Course;
   className?: string;
-  /** Set on cards above the fold so the image loads eagerly. */
   priority?: boolean;
-  /** "showcase": lime star and black "26+" bubble, as on the Sign In / Register collage. */
   tone?: "default" | "showcase";
 };
 
-/** Course_Card_1 from Figma — 373 × 384 at desktop. */
 export function CourseCard({
   course,
   className,
@@ -33,7 +30,6 @@ export function CourseCard({
         className,
       )}
     >
-      {/* Image */}
       <div className="relative aspect-[341/195.145] w-full overflow-hidden rounded-xl bg-[#443131]">
         <Image
           src={course.image}
@@ -50,7 +46,6 @@ export function CourseCard({
         </div>
       </div>
 
-      {/* Body */}
       <div className="mt-[20.855px] flex flex-col gap-4">
         <div className="flex items-start justify-between gap-[9px]">
           <div className="flex min-w-0 flex-col">

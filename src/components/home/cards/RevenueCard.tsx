@@ -5,19 +5,16 @@ type RevenueCardProps = {
   period: string;
   amount: string;
   change: string;
-  /** Fill of the lime bar in %. Without it the change pill sits under the amount. */
   progress?: number;
   className?: string;
 };
 
-/** Blue creator-dashboard card: "Total Revenue", "Year to Date". */
 export function RevenueCard({ title, period, amount, change, progress, className }: RevenueCardProps) {
   const amountText = (
     <p className="font-heading text-2xl leading-8 font-semibold tracking-[-0.24px] whitespace-nowrap">
       {amount}
     </p>
   );
-  // Electric Lime/500
   const changePill = (
     <p className="rounded-3xl bg-[#cbfc01] px-2 py-0.5 text-xs leading-5 md:text-[10px] font-medium whitespace-nowrap text-shuttle-950">
       {change}

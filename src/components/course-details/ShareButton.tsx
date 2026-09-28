@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { useState } from "react";
 
-/** Lime "Share" pill: native share sheet when available, otherwise copies the page link. */
 export function ShareButton({ title }: { title: string }) {
   const [copied, setCopied] = useState(false);
 
@@ -15,7 +14,6 @@ export function ShareButton({ title }: { title: string }) {
         await navigator.share({ title, url });
         return;
       } catch (error) {
-        // The user closed the share sheet; anything else falls back to copying.
         if (error instanceof DOMException && error.name === "AbortError") return;
       }
     }
@@ -25,7 +23,6 @@ export function ShareButton({ title }: { title: string }) {
       setCopied(true);
       window.setTimeout(() => setCopied(false), 2000);
     } catch {
-      // Clipboard access denied: nothing else we can do.
     }
   }
 

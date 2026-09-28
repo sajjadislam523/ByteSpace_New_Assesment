@@ -2,7 +2,6 @@ import type { ReactNode } from "react";
 import { SignalIcon } from "@/components/icons";
 import { cn } from "@/lib/cn";
 
-/** Frosted badge placed over course images ("17 Lessons", "2 hours 16 mins"). */
 export function GlassBadge({ children, className }: { children: ReactNode; className?: string }) {
   return (
     <span
@@ -18,7 +17,6 @@ export function GlassBadge({ children, className }: { children: ReactNode; class
 
 export type CourseLevel = "Beginner" | "Intermediate" | "Advanced";
 
-/** Grey pill with the signal icon, e.g. "Beginner". */
 export function LevelBadge({ level, className }: { level: CourseLevel; className?: string }) {
   return (
     <span

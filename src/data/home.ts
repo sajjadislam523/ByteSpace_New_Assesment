@@ -1,4 +1,3 @@
-// Floating cards on the home hero.
 export const heroCards = {
   progress: {
     label: "Learning Progress",
@@ -25,11 +24,9 @@ export type FrameOrnament = {
   src: string;
   mask: string;
   tint: "lime" | "white";
-  /** Horizontal centre, in px from the middle of the 1440px frame. */
   x: number;
   top: number;
   size: number;
-  /** Image box inside the frame, as exported from Figma. */
   inset: string;
   flip?: boolean;
 };
@@ -37,7 +34,6 @@ export type FrameOrnament = {
 export const springInset = "0 0.47% -0.47% -0.93%";
 export const solidInset = "-0.22% 0.56% -0.28% -1.05%";
 
-// 3D shapes around the hero, in Figma paint order.
 export const heroOrnaments: FrameOrnament[] = [
   {
     src: "/images/home/spring-bottom-right.png",
@@ -96,7 +92,6 @@ export const heroOrnaments: FrameOrnament[] = [
   },
 ];
 
-// Partner logos strip under the hero. Sizes are the SVG root dimensions.
 export const partnerLogos = [
   { src: "/images/home/logos/logo-1.svg", width: 167, height: 41 },
   { src: "/images/home/logos/logo-2.svg", width: 168, height: 41 },
@@ -105,7 +100,6 @@ export const partnerLogos = [
   { src: "/images/home/logos/logo-5.svg", width: 169, height: 42 },
 ];
 
-// "Discover Your Passion" category chips, one array per centred Figma row. "Featured" shows all.
 export const discoverChipRows = [
   [
     "Featured",
@@ -128,7 +122,6 @@ export const discoverChipRows = [
   ["Productivity", "Web Development", "Data Science", "Cooking"],
 ];
 
-// "Explore Diverse Learning Paths" tiles. Icons are the 36px Figma SVGs.
 export const learningPaths = [
   { label: "Design", icon: "design" },
   { label: "Development", icon: "development" },
@@ -142,14 +135,12 @@ export const learningPaths = [
   href: `/courses?${new URLSearchParams({ category: label })}`,
 }));
 
-// "Your Path to Professional Growth" stats.
 export const growthStats = [
   { value: "12K", label: "Students" },
   { value: "70+", label: "Courses" },
   { value: "16", label: "Creators" },
 ];
 
-// "Create & Manage Courses Easily." checklist and dashboard cards.
 export const creatorChecklist = [
   "Share Your Expertise",
   "Monetize Your Passion",
@@ -162,7 +153,6 @@ export const creatorRevenue = {
   yearToDate: { title: "Year to Date", period: "2023", amount: "$1,200.38", change: "+12$" },
 };
 
-// 3D shapes around the "Join as Creator" CTA, in Figma paint order. Tops are on the 488px frame.
 export const ctaOrnaments: FrameOrnament[] = [
   {
     src: "/images/home/cone.png",
@@ -230,7 +220,6 @@ export const ctaOrnaments: FrameOrnament[] = [
   },
 ];
 
-// "Discover What Our Community Is Saying" testimonials. Quotes copied from Figma, quote marks included.
 export const testimonials = [
   {
     name: "Sarah M.",

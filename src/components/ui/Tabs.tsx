@@ -19,7 +19,6 @@ type TabsProps = {
   listClassName?: string;
 };
 
-/** About / Lessons / Reviews tabs from the course details page. */
 export function Tabs({
   items,
   defaultValue,

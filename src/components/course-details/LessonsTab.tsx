@@ -2,10 +2,8 @@ import Image from "next/image";
 import { LearningProgressCard } from "@/components/home/cards/LearningProgressCard";
 import type { CourseDetails } from "@/data/course-details";
 
-// Body M on this page uses a 1.6 line height.
 const body = "text-body-m leading-[1.6] text-shuttle-700";
 
-/** Lessons tab: module list, lesson content and progress tracking. */
 export function LessonsTab({ details }: { details: CourseDetails }) {
   return (
     <div className="flex flex-col gap-6 text-shuttle-950">

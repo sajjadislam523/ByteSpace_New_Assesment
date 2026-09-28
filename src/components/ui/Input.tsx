@@ -5,14 +5,10 @@ type InputProps = ComponentPropsWithoutRef<"input"> & {
   label?: string;
   icon?: ReactNode;
   error?: string;
-  /** Border is used on white surfaces; the search bar on blue has none. */
   bordered?: boolean;
   wrapperClassName?: string;
 };
 
-/**
- * 52px text field from the Sign In / Register forms and the search bar.
- */
 export function Input({
   label,
   icon,
@@ -37,7 +33,6 @@ export function Input({
       <div
         className={cn(
           "flex h-[52px] w-full items-center gap-2 bg-white px-6 text-shuttle-400 transition-colors",
-          // Bordered = Sign In / Register fields (12px radius); borderless = the 24px search bar.
           bordered ? "rounded-xl border" : "rounded-3xl",
           bordered && (error ? "border-red-500" : "border-shuttle-100 focus-within:border-primary"),
         )}

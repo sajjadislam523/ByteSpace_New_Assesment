@@ -21,7 +21,6 @@ export function LearningPathsSection() {
           </p>
         </div>
 
-        {/* 6 × 167px tiles with 40px gaps = 1202px, centred on the 1200px column like Figma. */}
         <ul className="mt-10 grid grid-cols-[repeat(2,minmax(0,167px))] justify-center gap-4 sm:grid-cols-[repeat(3,167px)] sm:gap-10 lg:mt-[68px] xl:grid-cols-[repeat(6,167px)]">
           {learningPaths.map((path) => (
             <li key={path.label}>

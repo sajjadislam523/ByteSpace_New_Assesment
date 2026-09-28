@@ -3,11 +3,9 @@ import { CourseCard } from "./CourseCard";
 
 type CourseGridProps = {
   entries: CatalogEntry[];
-  /** Number of leading cards whose images load eagerly. */
   priorityCount?: number;
 };
 
-/** 3-column course grid with 40px gaps, or the "No courses found" empty state. */
 export function CourseGrid({ entries, priorityCount = 3 }: CourseGridProps) {
   if (entries.length === 0) {
     return (

@@ -56,7 +56,6 @@ export function LoginForm() {
           <span className="text-body-l text-black-400">or</span>
           <span aria-hidden="true" className="h-px flex-1 bg-black-200" />
         </div>
-        {/* TODO: connect the social sign-in providers. */}
         <div className="flex items-center gap-4">
           {socialProviders.map((provider) => (
             <button

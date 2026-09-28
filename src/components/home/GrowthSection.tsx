@@ -11,7 +11,6 @@ export function GrowthSection() {
   return (
     <section aria-labelledby="growth-heading" className="pt-12 lg:pt-[120px]">
       <Container>
-        {/* 1258px row at 1440: the collage's spring hangs 58px past the 1200px column. */}
         <div className="flex flex-col items-center gap-12 xl:-mr-[58px] xl:flex-row xl:gap-[63px]">
           <div className="flex w-full max-w-[574px] flex-col gap-6 lg:gap-10">
             <h2
@@ -38,9 +37,7 @@ export function GrowthSection() {
             </dl>
           </div>
 
-          {/* md+: Figma layers at their 621 × 552 offsets. Below md: photo, then the cards. */}
           <div className="relative flex w-full max-w-[621px] shrink-0 flex-col items-center gap-4 md:block md:h-[552px]">
-            {/* Decorative preview of the first course; its links stay out of the tab order. */}
             <div inert className="w-full max-w-[373px] max-md:order-3 md:absolute md:top-0 md:left-0">
               <CourseCard course={courses[0]} />
             </div>

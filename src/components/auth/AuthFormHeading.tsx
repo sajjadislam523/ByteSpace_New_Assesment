@@ -1,4 +1,3 @@
-/** "Sign In / Welcome Back" block at the top of the form card. */
 export function AuthFormHeading({ eyebrow, title }: { eyebrow: string; title: string }) {
   return (
     <div className="flex flex-col items-start">

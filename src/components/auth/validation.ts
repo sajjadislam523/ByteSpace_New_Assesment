@@ -5,7 +5,6 @@ export type AuthErrors = Partial<Record<AuthField, string>>;
 export const MIN_PASSWORD_LENGTH = 8;
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-/** Returns an error message for every invalid field; an empty object means the form is valid. */
 export function validateAuth(values: AuthValues, fields: readonly AuthField[]): AuthErrors {
   const errors: AuthErrors = {};
 

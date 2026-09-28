@@ -3,7 +3,6 @@ import { Container } from "@/components/layout/Container";
 import { testimonials } from "@/data/home";
 import { TestimonialCard } from "./TestimonialCard";
 
-// Blurred lime/blue glows, placed from the 1440 frame's left edge and kept centred.
 const glows = [
   { src: "/images/home/testimonials/glow-lime.svg", size: 1217, x: 802, top: -281 },
   { src: "/images/home/growth/backdrop-glow-small.svg", size: 752, x: 355, top: -178 },
@@ -32,7 +31,6 @@ export function TestimonialsSection() {
       </div>
 
       <Container>
-        {/* Figma's content box is 1204px (3 × 374 + 2 × 41), 2px wider than the column each side. */}
         <div className="flex flex-col gap-10 lg:gap-[72px] xl:-mx-0.5">
           <div className="flex flex-col gap-4 xl:flex-row xl:items-end xl:gap-[43px]">
             <h2
