@@ -19,7 +19,7 @@ export function RevenueCard({ title, period, amount, change, progress, className
   );
   // Electric Lime/500
   const changePill = (
-    <p className="rounded-3xl bg-[#cbfc01] px-2 py-0.5 text-[10px] leading-5 font-medium whitespace-nowrap text-shuttle-950">
+    <p className="rounded-3xl bg-[#cbfc01] px-2 py-0.5 text-xs leading-5 md:text-[10px] font-medium whitespace-nowrap text-shuttle-950">
       {change}
     </p>
   );
@@ -33,7 +33,7 @@ export function RevenueCard({ title, period, amount, change, progress, className
     >
       <div className="whitespace-nowrap">
         <p className="text-label-m">{title}</p>
-        <p className="text-[10px] leading-[1.2]">{period}</p>
+        <p className="text-xs leading-[1.2] md:text-[10px]">{period}</p>
       </div>
       {progress === undefined ? (
         <>

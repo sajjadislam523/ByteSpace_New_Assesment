@@ -46,9 +46,10 @@ export function Footer() {
   return (
     <footer className="border-t border-shuttle-200 bg-white text-shuttle-950">
       <Container className="flex flex-col gap-16 pt-14 pb-12 lg:gap-[130px] lg:pt-[70px]">
-        <div className="flex flex-col gap-12 lg:flex-row lg:gap-[92px]">
+        {/* The row needs the full 1200px column (528 + 92 + 580), which only exists from 1440px. */}
+        <div className="flex flex-col gap-12 min-[1440px]:flex-row min-[1440px]:gap-[92px]">
           {/* Brand + newsletter */}
-          <div className="flex flex-col gap-10 lg:w-[528px] lg:shrink-0 lg:gap-[45px]">
+          <div className="flex flex-col gap-10 lg:gap-[45px] min-[1440px]:w-[528px] min-[1440px]:shrink-0">
             <div className="flex flex-col gap-4">
               <Logo tone="dark" className="self-start" />
               <p className="text-body-s">
@@ -68,12 +69,12 @@ export function Footer() {
           {/* Link columns — titles are visually hidden in the design */}
           <nav
             aria-label="Footer"
-            className="grid grid-cols-2 gap-x-10 gap-y-8 sm:grid-cols-3 lg:flex lg:w-[580px] lg:gap-10"
+            className="grid grid-cols-2 gap-x-10 gap-y-8 sm:grid-cols-3 min-[1440px]:flex min-[1440px]:w-[580px] min-[1440px]:gap-10"
           >
             {linkColumns.map((column) => (
-              <div key={column.title} className="lg:w-[167px]">
+              <div key={column.title} className="min-[1440px]:w-[167px]">
                 <h2 className="sr-only">{column.title}</h2>
-                <ul className="flex flex-col gap-4 text-body-s lg:pt-12">
+                <ul className="flex flex-col gap-4 text-body-s min-[1440px]:pt-12">
                   {column.links.map((link) => (
                     <li key={link.label}>
                       <Link
