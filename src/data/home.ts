@@ -95,3 +95,12 @@ export const heroOrnaments: HeroOrnament[] = [
     inset: solidInset,
   },
 ];
+
+// Partner logos strip under the hero. Sizes are the SVG root dimensions.
+export const partnerLogos = [
+  { src: "/images/home/logos/logo-1.svg", width: 167, height: 41 },
+  { src: "/images/home/logos/logo-2.svg", width: 168, height: 41 },
+  { src: "/images/home/logos/logo-3.svg", width: 170, height: 41 },
+  { src: "/images/home/logos/logo-4.svg", width: 170, height: 41 },
+  { src: "/images/home/logos/logo-5.svg", width: 169, height: 42 },
+];
