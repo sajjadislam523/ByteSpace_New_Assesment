@@ -11,7 +11,6 @@ export type CourseDetails = {
   students: number;
   preview: string;
   lessonSummary: string;
-  /** First lessons shown in the sidebar; the rest are counted in `moreLessons`. */
   lessons: { number: string; title: string; duration: string }[];
   moreLessons: number;
   enrollText: string;
@@ -21,15 +20,25 @@ export type CourseDetails = {
   sneakPeek: { src: string; alt: string }[];
   keyPoints: string[];
   lessonsIntro: string;
-  /** `number` is kept separate because the Figma list skips Module 3. */
   modules: { number: number; title: string; description: string }[];
   lessonContent: string;
   progressTracking: string;
-  /** Learning progress in percent, shown on the Lessons tab. */
   progress: number;
+  reviewsIntro: string;
+  averageRating: number;
+  ratingCounts: { stars: number; count: number }[];
+  reviewList: Review[];
 };
 
-// Content of the "Build Digital Asset" course in Figma, shared by every course for now.
+export type Review = {
+  name: string;
+  role: string;
+  avatar: string;
+  rating: number;
+  date: string;
+  text: string;
+};
+
 const shared: Omit<CourseDetails, "title"> = {
   subtitle: "Unlock the Power of Digital Creation with Expert Guidance",
   level: "Intermediate",
@@ -55,7 +64,6 @@ const shared: Omit<CourseDetails, "title"> = {
     name: "PurePearl Studio",
     role: "Professional Creator",
     avatar: "/images/course/creator-purepearl.png",
-    // Figma repeats the enroll copy here.
     bio: "Ready to Dive In? Enroll Now and Start Building Your Digital Future!",
     href: "/creators/purepearl-studio",
   },
@@ -82,7 +90,6 @@ const shared: Omit<CourseDetails, "title"> = {
   ],
   lessonsIntro:
     "Immerse yourself in the course content as we break down each module into comprehensive lessons, providing practical insights and hands-on experiences.",
-  // Figma has no Module 3; numbering kept as designed.
   modules: [
     {
       number: 1,
@@ -126,6 +133,50 @@ const shared: Omit<CourseDetails, "title"> = {
   progressTracking:
     "Witness your growth as you complete lessons, with an intuitive progress tracking feature guiding you through your learning journey.",
   progress: 55,
+  reviewsIntro:
+    "Discover what our learners have to say about their experience with 'Build Digital Assets: A Comprehensive Guide.' Read reviews and ratings from individuals who have embarked on the transformative journey of mastering digital asset creation.",
+  averageRating: 4.7,
+  ratingCounts: [
+    { stars: 5, count: 720 },
+    { stars: 4, count: 120 },
+    { stars: 3, count: 21 },
+    { stars: 2, count: 12 },
+    { stars: 1, count: 16 },
+  ],
+  reviewList: [
+    {
+      name: "PurePearl Studio",
+      role: "UI/UX Designer",
+      avatar: "/images/reviews/purepearl-studio.png",
+      rating: 5,
+      date: "a year ago",
+      text: '"The course provided me with a comprehensive understanding of digital asset creation. The lessons were in-depth, practical, and immediately applicable to my work. Highly recommended!"',
+    },
+    {
+      name: "Albert Flores",
+      role: "UI/UX Designer",
+      avatar: "/images/reviews/albert-flores.png",
+      rating: 5,
+      date: "a year ago",
+      text: "This course transformed my approach to digital design. The combination of theory, hands-on exercises, and real-world applications made it a truly enriching experience. Excited to implement what I've learned!",
+    },
+    {
+      name: "Cody Fisher",
+      role: "UI/UX Designer",
+      avatar: "/images/reviews/cody-fisher.png",
+      rating: 5,
+      date: "a year ago",
+      text: "The project showcase and critique module created a collaborative environment where I could showcase my work, receive valuable feedback, and refine my skills. It added a unique and valuable dimension to the learning process.",
+    },
+    {
+      name: "Brooklyn Simmons",
+      role: "UI/UX Designer",
+      avatar: "/images/reviews/brooklyn-simmons.png",
+      rating: 5,
+      date: "a year ago",
+      text: "The lessons on optimizing digital assets for various platforms were particularly insightful. The course adapts to the evolving digital landscape, and the engaging content kept me motivated throughout.",
+    },
+  ],
 };
 
 const titles: Record<string, string> = {

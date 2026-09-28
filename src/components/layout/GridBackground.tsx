@@ -1,7 +1,6 @@
 import type { ComponentPropsWithoutRef } from "react";
 import { cn } from "@/lib/cn";
 
-/** Blue section with the 120px blueprint grid used across hero areas. */
 export function GridBackground({
   className,
   ...props

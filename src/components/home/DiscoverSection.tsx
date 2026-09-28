@@ -32,7 +32,6 @@ export function DiscoverSection() {
           </p>
         </div>
 
-        {/* Three centred rows at lg+, one horizontally scrolling row below. */}
         <div
           role="group"
           aria-label="Filter courses by category"

@@ -23,7 +23,6 @@ export function CtaSection() {
         <Button href="/register?role=creator">Join as Creator</Button>
       </Container>
 
-      {/* Figma offsets only clear the text when it has its 1440 widths, so shapes start at xl. */}
       <OrnamentLayer ornaments={ctaOrnaments} className="hidden xl:block" />
     </GridBackground>
   );

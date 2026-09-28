@@ -9,12 +9,10 @@ type HappyStudentsCardProps = {
   reviews: number;
   avatars: { src: string; alt: string }[];
   extra: string;
-  /** "lime" has a blue star and a dark "2K+" bubble. */
   tone?: "white" | "lime";
   className?: string;
 };
 
-/** "Happy Students 4.5 (240) ★" card with a 43px avatar stack. */
 export function HappyStudentsCard({
   label,
   rating,

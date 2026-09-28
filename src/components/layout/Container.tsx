@@ -5,7 +5,6 @@ type ContainerProps<T extends ElementType> = {
   as?: T;
 } & ComponentPropsWithoutRef<T>;
 
-/** 1200px content column centred inside the 1440px design frame. */
 export function Container<T extends ElementType = "div">({
   as,
   className,

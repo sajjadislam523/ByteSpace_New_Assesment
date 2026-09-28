@@ -4,12 +4,10 @@ import { FloatingCard } from "./FloatingCard";
 type LearningProgressCardProps = {
   label: string;
   percent: number;
-  /** "inline" is the full-width bordered card on the course Lessons tab. */
   variant?: "floating" | "inline";
   className?: string;
 };
 
-/** "Learning Progress 55%" card with a lime progress bar. */
 export function LearningProgressCard({
   label,
   percent,

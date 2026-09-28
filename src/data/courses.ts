@@ -22,7 +22,6 @@ const shared = {
   priceSuffix: "/lifetime",
 } satisfies Partial<Course>;
 
-// Mock data matching the course cards in the Figma file.
 export const courses: Course[] = [
   {
     ...shared,
@@ -84,7 +83,6 @@ export const COURSES_PER_PAGE = 18;
 
 export type CatalogEntry = { id: string; course: Course };
 
-// Mock catalog: the six design courses repeated to fill five pages.
 const catalog: CatalogEntry[] = Array.from({ length: 15 }, (_, round) =>
   courses.map((course) => ({ id: `${course.slug}-${round}`, course })),
 ).flat();

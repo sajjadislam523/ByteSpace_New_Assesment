@@ -7,13 +7,11 @@ type SearchBarProps = {
   defaultValue?: string;
   placeholder?: string;
   scopeLabel?: string;
-  /** Replaces the scope dropdown with a plain submit button (home hero). */
   submitLabel?: string;
   action?: string;
   className?: string;
 };
 
-/** White search field + lime button: scope dropdown on /courses, submit button on the home hero. */
 export function SearchBar({
   defaultValue,
   placeholder = "Search",

@@ -2,7 +2,6 @@ import { CategoryIcon, ChevronDownIcon, FilterIcon, SignalIcon } from "@/compone
 import { cn } from "@/lib/cn";
 import { Button } from "./Button";
 
-/** Filter / Level / Category buttons and the sort dropdown above the course grid. */
 export function FilterBar({ className }: { className?: string }) {
   return (
     <div className={cn("flex flex-wrap items-center justify-between gap-4", className)}>

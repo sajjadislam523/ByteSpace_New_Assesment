@@ -7,16 +7,11 @@ import { MobileNav } from "./MobileNav";
 import { authNav, mainNav, type NavKey } from "./nav";
 
 type HeaderProps = {
-  /** Highlights the current page in the main navigation. */
   active?: NavKey;
-  /** Logo only — used on the Sign In / Register pages. */
   minimal?: boolean;
   className?: string;
 };
 
-/**
- * Sits on top of a blue <GridBackground />. 120px tall, like the Figma Header_Frame.
- */
 export function Header({ active, minimal = false, className }: HeaderProps) {
   return (
     <header className={cn("relative z-20 text-shuttle-50", className)}>

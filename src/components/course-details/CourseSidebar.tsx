@@ -7,10 +7,8 @@ import type { Course } from "@/types/course";
 
 type CourseSidebarProps = { course: Course; details: CourseDetails; className?: string };
 
-// Body M on this page uses a 1.6 line height (26px rows in Figma).
 const body = "text-body-m leading-[1.6] text-shuttle-700";
 
-/** Enroll card: lesson preview, price, what's included and the creator. */
 export function CourseSidebar({ course, details, className }: CourseSidebarProps) {
   const { creator } = details;
 
@@ -45,7 +43,6 @@ export function CourseSidebar({ course, details, className }: CourseSidebarProps
       <section className="flex flex-col gap-6">
         <p className={body}>{details.enrollText}</p>
         <p className="flex items-end">
-          {/* Figma clips the price line to 38px */}
           <span className="font-heading text-heading-s leading-[38px] text-primary">${course.price}</span>
           {course.priceSuffix && <span className={body}>{course.priceSuffix}</span>}
         </p>

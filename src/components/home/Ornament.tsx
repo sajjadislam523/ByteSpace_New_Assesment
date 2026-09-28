@@ -13,15 +13,12 @@ type OrnamentProps = {
   mask: string;
   tint: keyof typeof tints;
   size: number;
-  /** Image box inside the frame, as exported from Figma. */
   inset: string;
   flip?: boolean;
-  /** Positioning classes; the ornament is always absolute. */
   className?: string;
   style?: CSSProperties;
 };
 
-// Grey 3D render tinted with a hard-light colour layer clipped to the shape's mask.
 export function Ornament({ src, mask, tint, size, inset, flip, className, style }: OrnamentProps) {
   return (
     <div
@@ -40,7 +37,6 @@ export function Ornament({ src, mask, tint, size, inset, flip, className, style 
   );
 }
 
-/** Decorative layer of ornaments placed from the centre of the 1440px frame. */
 export function OrnamentLayer({
   ornaments,
   className,

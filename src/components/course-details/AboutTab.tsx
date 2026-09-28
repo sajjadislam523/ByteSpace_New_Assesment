@@ -1,10 +1,8 @@
 import Image from "next/image";
 import type { CourseDetails } from "@/data/course-details";
 
-// Body M on this page uses a 1.6 line height; paragraphs are separated by one empty line.
 const body = "text-body-m leading-[1.6] text-shuttle-700";
 
-/** About tab: description, sneak-peek gallery and key points. */
 export function AboutTab({ details }: { details: CourseDetails }) {
   return (
     <div className="flex flex-col gap-6 text-shuttle-950">

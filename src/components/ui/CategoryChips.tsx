@@ -12,7 +12,6 @@ type CategoryChipsProps = {
   className?: string;
 };
 
-/** Horizontal category filter (Featured, Music, Drawing & Painting …). */
 export function CategoryChips({
   categories,
   defaultValue,

@@ -5,10 +5,6 @@ import { courses } from "@/data/courses";
 import { heroCards, solidInset, springInset } from "@/data/home";
 import { cn } from "@/lib/cn";
 
-/**
- * Decorative 548 × 585 collage from the Sign In / Register frames (frame origin 97, 305).
- * Absolutely positioned by the caller; children sit at their Figma offsets, in Figma paint order.
- */
 export function AuthCollage({ className }: { className?: string }) {
   return (
     <div

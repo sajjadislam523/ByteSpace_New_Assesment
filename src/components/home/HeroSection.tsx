@@ -11,7 +11,6 @@ import { LearningProgressCard } from "./cards/LearningProgressCard";
 import { photoShadow } from "./effects";
 import { OrnamentLayer } from "./Ornament";
 
-// Card offsets are measured from the 578 × 541 photo box; small screens scale the cards down.
 const heroCard = "absolute max-sm:scale-60 sm:max-md:scale-75";
 
 export function HeroSection() {
@@ -40,7 +39,6 @@ export function HeroSection() {
         />
       </Container>
 
-      {/* Person, lime arc and cards. Positions below are offsets from the 578 × 541 photo box. */}
       <div className="relative mx-auto mt-12 aspect-[578/541] w-[calc(100%-2.5rem)] max-w-[578px] sm:w-[calc(100%-4rem)] lg:absolute lg:top-[512px] lg:left-[calc(50%-289px)] lg:mt-0 lg:w-[578px]">
         <Image
           src="/images/home/arc.svg"

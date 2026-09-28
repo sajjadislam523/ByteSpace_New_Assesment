@@ -46,9 +46,7 @@ export function Footer() {
   return (
     <footer className="border-t border-shuttle-200 bg-white text-shuttle-950">
       <Container className="flex flex-col gap-16 pt-14 pb-12 lg:gap-[130px] lg:pt-[70px]">
-        {/* The row needs the full 1200px column (528 + 92 + 580), which only exists from 1440px. */}
         <div className="flex flex-col gap-12 min-[1440px]:flex-row min-[1440px]:gap-[92px]">
-          {/* Brand + newsletter */}
           <div className="flex flex-col gap-10 lg:gap-[45px] min-[1440px]:w-[528px] min-[1440px]:shrink-0">
             <div className="flex flex-col gap-4">
               <Logo tone="dark" className="self-start" />
@@ -66,7 +64,6 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Link columns — titles are visually hidden in the design */}
           <nav
             aria-label="Footer"
             className="grid grid-cols-2 gap-x-10 gap-y-8 sm:grid-cols-3 min-[1440px]:flex min-[1440px]:w-[580px] min-[1440px]:gap-10"

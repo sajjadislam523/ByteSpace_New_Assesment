@@ -3,11 +3,8 @@ import { cn } from "@/lib/cn";
 
 type AvatarStackProps = {
   avatars: { src: string; alt: string }[];
-  /** Text for the lime counter bubble, e.g. "26+" or "2K+". */
   extra?: string;
-  /** 32px on course cards, 43px on the "Happy Students" card. */
   size?: 32 | 43;
-  /** "dark" is the black counter bubble on the Sign In / Register collage. */
   extraTone?: "lime" | "dark";
   className?: string;
 };
@@ -19,7 +16,6 @@ export function AvatarStack({
   extraTone = "lime",
   className,
 }: AvatarStackProps) {
-  // 32px avatars overlap by 8px, 43px avatars by 16px (from the Figma layout)
   const overlap = size === 32 ? "-ml-2" : "-ml-4";
   const bubble =
     extraTone === "lime"

@@ -6,7 +6,6 @@ import { ShareButton } from "./ShareButton";
 
 type CourseHeroProps = { course: Course; details: CourseDetails };
 
-/** Title, creator and stat pills on the blue grid, with the Share button on the right. */
 export function CourseHero({ course, details }: CourseHeroProps) {
   const pills = [
     { icon: "/images/course/level.svg", label: details.level },

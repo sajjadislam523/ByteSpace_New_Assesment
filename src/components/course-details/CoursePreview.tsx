@@ -3,7 +3,6 @@ import { cn } from "@/lib/cn";
 
 type CoursePreviewProps = { image: string; title: string; className?: string };
 
-/** 720 × 479 course video preview with the glass play button. */
 export function CoursePreview({ image, title, className }: CoursePreviewProps) {
   return (
     <div
@@ -20,7 +19,6 @@ export function CoursePreview({ image, title, className }: CoursePreviewProps) {
         sizes="(min-width: 1280px) 720px, (min-width: 1024px) 55vw, 100vw"
         className="object-contain"
       />
-      {/* TODO: open the preview video once the course has one. Figma offset: 324, 204 of 720 × 479. */}
       <button
         type="button"
         aria-label="Play course preview"

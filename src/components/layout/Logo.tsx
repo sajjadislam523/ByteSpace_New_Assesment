@@ -2,9 +2,7 @@ import Link from "next/link";
 import { cn } from "@/lib/cn";
 
 type LogoProps = {
-  /** "light" = white wordmark for blue backgrounds, "dark" = for white backgrounds */
   tone?: "light" | "dark";
-  /** Only the lime mark, as on the Sign In / Register header. */
   markOnly?: boolean;
   className?: string;
 };
