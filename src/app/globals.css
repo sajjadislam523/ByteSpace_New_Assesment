@@ -52,6 +52,9 @@
   --text-body-xs--line-height: 1.6;
 
   /* Labels */
+  --text-label-xl: 20px;
+  --text-label-xl--line-height: 1.2;
+  --text-label-xl--font-weight: 500;
   --text-label-l: 18px;
   --text-label-l--line-height: 1.2;
   --text-label-l--font-weight: 500;

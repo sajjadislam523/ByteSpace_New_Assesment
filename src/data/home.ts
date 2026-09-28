@@ -127,3 +127,17 @@ export const discoverChipRows = [
   ],
   ["Productivity", "Web Development", "Data Science", "Cooking"],
 ];
+
+// "Explore Diverse Learning Paths" tiles. Icons are the 36px Figma SVGs.
+export const learningPaths = [
+  { label: "Design", icon: "design" },
+  { label: "Development", icon: "development" },
+  { label: "IT & Software", icon: "it-software" },
+  { label: "Business", icon: "business" },
+  { label: "Marketing", icon: "marketing" },
+  { label: "Photography", icon: "photography" },
+].map(({ label, icon }) => ({
+  label,
+  icon: `/images/home/paths/${icon}.svg`,
+  href: `/courses?${new URLSearchParams({ category: label })}`,
+}));
