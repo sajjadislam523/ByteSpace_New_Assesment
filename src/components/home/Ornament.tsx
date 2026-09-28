@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { CSSProperties } from "react";
+import type { FrameOrnament } from "@/data/home";
 import { cn } from "@/lib/cn";
 
 const tints = {
@@ -35,6 +36,28 @@ export function Ornament({ src, mask, tint, size, inset, flip, className, style 
           style={{ backgroundColor: tints[tint], maskImage: `url(${mask})` }}
         />
       </div>
+    </div>
+  );
+}
+
+/** Decorative layer of ornaments placed from the centre of the 1440px frame. */
+export function OrnamentLayer({
+  ornaments,
+  className,
+}: {
+  ornaments: FrameOrnament[];
+  className?: string;
+}) {
+  return (
+    <div aria-hidden="true" className={cn("pointer-events-none absolute inset-0", className)}>
+      {ornaments.map(({ x, top, ...ornament }) => (
+        <Ornament
+          key={ornament.mask}
+          {...ornament}
+          className="-translate-x-1/2"
+          style={{ left: `calc(50% + ${x}px)`, top }}
+        />
+      ))}
     </div>
   );
 }

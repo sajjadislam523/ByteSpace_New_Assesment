@@ -21,7 +21,7 @@ export const heroCards = {
   },
 };
 
-export type HeroOrnament = {
+export type FrameOrnament = {
   src: string;
   mask: string;
   tint: "lime" | "white";
@@ -38,7 +38,7 @@ export const springInset = "0 0.47% -0.47% -0.93%";
 const solidInset = "-0.22% 0.56% -0.28% -1.05%";
 
 // 3D shapes around the hero, in Figma paint order.
-export const heroOrnaments: HeroOrnament[] = [
+export const heroOrnaments: FrameOrnament[] = [
   {
     src: "/images/home/spring-bottom-right.png",
     mask: "/images/home/spring-bottom-right-mask.png",
@@ -161,3 +161,71 @@ export const creatorRevenue = {
   total: { title: "Total Revenue", period: "July 1-28", amount: "$120.29", change: "+12$", progress: 56 },
   yearToDate: { title: "Year to Date", period: "2023", amount: "$1,200.38", change: "+12$" },
 };
+
+// 3D shapes around the "Join as Creator" CTA, in Figma paint order. Tops are on the 488px frame.
+export const ctaOrnaments: FrameOrnament[] = [
+  {
+    src: "/images/home/cone.png",
+    mask: "/images/home/cone-mask.png",
+    tint: "lime",
+    x: 454,
+    top: 0,
+    size: 188,
+    inset: solidInset,
+  },
+  {
+    src: "/images/home/spring-bottom-right.png",
+    mask: "/images/home/spring-bottom-right-mask.png",
+    tint: "lime",
+    x: 555,
+    top: 289,
+    size: 330,
+    inset: springInset,
+  },
+  {
+    src: "/images/home/spring.png",
+    mask: "/images/home/spring-top-left-mask.png",
+    tint: "lime",
+    x: -645.5,
+    top: -162,
+    size: 385,
+    inset: springInset,
+  },
+  {
+    src: "/images/home/spring.png",
+    mask: "/images/home/spring-small-mask.png",
+    tint: "white",
+    x: -454.5,
+    top: 5,
+    size: 175,
+    inset: springInset,
+    flip: true,
+  },
+  {
+    src: "/images/home/cta/cone-2.png",
+    mask: "/images/home/cta/cone-2-mask.png",
+    tint: "white",
+    x: -674,
+    top: 225,
+    size: 188,
+    inset: solidInset,
+  },
+  {
+    src: "/images/home/ring.png",
+    mask: "/images/home/ring-mask.png",
+    tint: "lime",
+    x: -529,
+    top: 299,
+    size: 342,
+    inset: solidInset,
+  },
+  {
+    src: "/images/home/cylinder.png",
+    mask: "/images/home/cylinder-mask.png",
+    tint: "white",
+    x: 691,
+    top: 6,
+    size: 370,
+    inset: solidInset,
+  },
+];

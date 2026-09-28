@@ -1,4 +1,5 @@
 import { CreatorToolsSection } from "@/components/home/CreatorToolsSection";
+import { CtaSection } from "@/components/home/CtaSection";
 import { DiscoverSection } from "@/components/home/DiscoverSection";
 import { GrowthBackdrop } from "@/components/home/GrowthBackdrop";
 import { GrowthSection } from "@/components/home/GrowthSection";
@@ -18,6 +19,7 @@ export default function HomePage() {
         <GrowthSection />
         <CreatorToolsSection />
       </GrowthBackdrop>
+      <CtaSection />
       <main className="flex-1" />
       <Footer />
     </>

@@ -9,7 +9,7 @@ import { FloatingCard } from "./cards/FloatingCard";
 import { HappyStudentsCard } from "./cards/HappyStudentsCard";
 import { LearningProgressCard } from "./cards/LearningProgressCard";
 import { photoShadow } from "./effects";
-import { Ornament } from "./Ornament";
+import { OrnamentLayer } from "./Ornament";
 
 // Card offsets are measured from the 578 × 541 photo box; small screens scale the cards down.
 const heroCard = "absolute max-sm:scale-60 sm:max-md:scale-75";
@@ -21,16 +21,7 @@ export function HeroSection() {
     <GridBackground className="isolate lg:h-[1024px]">
       <Header active="home" />
 
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-10 hidden lg:block">
-        {heroOrnaments.map(({ x, top, ...ornament }) => (
-          <Ornament
-            key={ornament.mask}
-            {...ornament}
-            className="-translate-x-1/2"
-            style={{ left: `calc(50% + ${x}px)`, top }}
-          />
-        ))}
-      </div>
+      <OrnamentLayer ornaments={heroOrnaments} className="z-10 hidden lg:block" />
 
       <Container className="flex flex-col items-center gap-8 pt-6 text-center md:pt-10 lg:gap-15 lg:pt-[49px]">
         <div className="flex flex-col items-center gap-4 lg:gap-8">
