@@ -11,10 +11,18 @@ type CourseCardProps = {
   className?: string;
   /** Set on cards above the fold so the image loads eagerly. */
   priority?: boolean;
+  /** "showcase": lime star and black "26+" bubble, as on the Sign In / Register collage. */
+  tone?: "default" | "showcase";
 };
 
 /** Course_Card_1 from Figma — 373 × 384 at desktop. */
-export function CourseCard({ course, className, priority = false }: CourseCardProps) {
+export function CourseCard({
+  course,
+  className,
+  priority = false,
+  tone = "default",
+}: CourseCardProps) {
+  const showcase = tone === "showcase";
   const href = `/courses/${course.slug}`;
 
   return (
@@ -61,12 +69,20 @@ export function CourseCard({ course, className, priority = false }: CourseCardPr
               </Link>
             </p>
           </div>
-          <Rating value={course.rating} className="shrink-0" />
+          <Rating
+            value={course.rating}
+            starColor={showcase ? "lime" : undefined}
+            className="shrink-0"
+          />
         </div>
 
         <div className="flex items-center gap-3">
           <LevelBadge level={course.level} />
-          <AvatarStack avatars={course.students.avatars} extra={course.students.extra} />
+          <AvatarStack
+            avatars={course.students.avatars}
+            extra={course.students.extra}
+            extraTone={showcase ? "dark" : "lime"}
+          />
         </div>
 
         <p className="flex items-end">

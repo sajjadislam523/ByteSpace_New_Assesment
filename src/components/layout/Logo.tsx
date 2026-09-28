@@ -4,6 +4,8 @@ import { cn } from "@/lib/cn";
 type LogoProps = {
   /** "light" = white wordmark for blue backgrounds, "dark" = for white backgrounds */
   tone?: "light" | "dark";
+  /** Only the lime mark, as on the Sign In / Register header. */
+  markOnly?: boolean;
   className?: string;
 };
 
@@ -33,7 +35,15 @@ export function LogoMark({ className }: { className?: string }) {
   );
 }
 
-export function Logo({ tone = "light", className }: LogoProps) {
+export function Logo({ tone = "light", markOnly = false, className }: LogoProps) {
+  if (markOnly) {
+    return (
+      <Link href="/" aria-label="ByteSpace home" className={cn("inline-flex w-fit", className)}>
+        <LogoMark />
+      </Link>
+    );
+  }
+
   return (
     <Link
       href="/"

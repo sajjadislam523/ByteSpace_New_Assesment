@@ -36,9 +36,10 @@ export function Input({
       )}
       <div
         className={cn(
-          "flex h-[52px] w-full items-center gap-2 rounded-3xl bg-white px-6 text-shuttle-400 transition-colors",
-          bordered && "border border-shuttle-200 focus-within:border-primary",
-          error && "border-red-500 focus-within:border-red-500",
+          "flex h-[52px] w-full items-center gap-2 bg-white px-6 text-shuttle-400 transition-colors",
+          // Bordered = Sign In / Register fields (12px radius); borderless = the 24px search bar.
+          bordered ? "rounded-xl border" : "rounded-3xl",
+          bordered && (error ? "border-red-500" : "border-shuttle-100 focus-within:border-primary"),
         )}
       >
         {icon}
