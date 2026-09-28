@@ -1,30 +1,18 @@
 import Image from "next/image";
-import type { ReactNode } from "react";
 import { Container } from "@/components/layout/Container";
 import { GridBackground } from "@/components/layout/GridBackground";
 import { Header } from "@/components/layout/Header";
-import { AvatarStack } from "@/components/ui/AvatarStack";
-import { Rating } from "@/components/ui/Rating";
 import { SearchBar } from "@/components/ui/SearchBar";
 import { cn } from "@/lib/cn";
-import { heroCards, heroOrnaments, type HeroOrnament } from "@/data/home";
+import { heroCards, heroOrnaments } from "@/data/home";
+import { FloatingCard } from "./cards/FloatingCard";
+import { HappyStudentsCard } from "./cards/HappyStudentsCard";
+import { LearningProgressCard } from "./cards/LearningProgressCard";
+import { photoShadow } from "./effects";
+import { Ornament } from "./Ornament";
 
-// Figma effect "A". drop-shadow follows the cut-out photo, box-shadow would draw a rectangle.
-const personShadow = [
-  "drop-shadow(0.518px 0.741px 3.036px rgb(0 0 0 / 0.04))",
-  "drop-shadow(2.233px 3.19px 5.723px rgb(0 0 0 / 0.06))",
-  "drop-shadow(5.383px 7.69px 9.571px rgb(0 0 0 / 0.07))",
-  "drop-shadow(10.208px 14.582px 16.087px rgb(0 0 0 / 0.08))",
-  "drop-shadow(16.946px 24.209px 24px rgb(0 0 0 / 0.09))",
-  "drop-shadow(25.838px 36.912px 36px rgb(0 0 0 / 0.1))",
-  "drop-shadow(37.122px 53.032px 56px rgb(0 0 0 / 0.11))",
-  "drop-shadow(51.038px 72.912px 72px rgb(0 0 0 / 0.13))",
-].join(" ");
-
-const tints = {
-  lime: "var(--color-accent)",
-  white: "var(--color-shuttle-50)",
-};
+// Card offsets are measured from the 578 × 541 photo box; small screens scale the cards down.
+const heroCard = "absolute max-sm:scale-60 sm:max-md:scale-75";
 
 export function HeroSection() {
   const { progress, students, category } = heroCards;
@@ -34,8 +22,13 @@ export function HeroSection() {
       <Header active="home" />
 
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-10 hidden lg:block">
-        {heroOrnaments.map((ornament) => (
-          <Ornament key={ornament.mask} {...ornament} />
+        {heroOrnaments.map(({ x, top, ...ornament }) => (
+          <Ornament
+            key={ornament.mask}
+            {...ornament}
+            className="-translate-x-1/2"
+            style={{ left: `calc(50% + ${x}px)`, top }}
+          />
         ))}
       </div>
 
@@ -74,35 +67,31 @@ export function HeroSection() {
           priority
           sizes="(min-width: 640px) 578px, calc(100vw - 40px)"
           className="object-cover"
-          style={{ filter: personShadow }}
+          style={{ filter: photoShadow }}
         />
 
-        <FloatingCard className="max-md:top-[34%] max-md:right-0 max-md:origin-top-right md:top-[139px] md:left-[411px]">
-          <p className="text-label-s">{progress.label}</p>
-          <p className="w-[200px] font-heading text-[48px] leading-[1.2] font-semibold tracking-[-0.48px]">
-            {progress.percent}%
-          </p>
-          <div
-            role="progressbar"
-            aria-label={progress.label}
-            aria-valuenow={progress.percent}
-            aria-valuemin={0}
-            aria-valuemax={100}
-            className="h-2 w-[200px] rounded-3xl bg-[#f6f6f6]"
-          >
-            <div className="h-full rounded-3xl bg-accent" style={{ width: `${progress.percent}%` }} />
-          </div>
-        </FloatingCard>
+        <LearningProgressCard
+          {...progress}
+          className={cn(
+            heroCard,
+            "max-md:top-[34%] max-md:right-0 max-md:origin-top-right md:top-[139px] md:left-[411px]",
+          )}
+        />
 
-        <FloatingCard className="w-[258px] justify-center max-md:bottom-[4%] max-md:left-0 max-md:origin-bottom-left md:top-[325px] md:left-[-80px] lg:left-[-103px]">
-          <div className="flex flex-col items-start">
-            <p className="text-label-m">{students.label}</p>
-            <Rating value={students.rating} count={students.reviews} size="sm" />
-          </div>
-          <AvatarStack avatars={students.avatars} extra={students.extra} size={43} />
-        </FloatingCard>
+        <HappyStudentsCard
+          {...students}
+          className={cn(
+            heroCard,
+            "max-md:bottom-[4%] max-md:left-0 max-md:origin-bottom-left md:top-[325px] md:left-[-80px] lg:left-[-103px]",
+          )}
+        />
 
-        <FloatingCard className="z-20 whitespace-nowrap max-md:top-[6%] max-md:left-0 max-md:origin-top-left md:top-[127px] md:left-[-27px]">
+        <FloatingCard
+          className={cn(
+            heroCard,
+            "z-20 whitespace-nowrap max-md:top-[6%] max-md:left-0 max-md:origin-top-left md:top-[127px] md:left-[-27px]",
+          )}
+        >
           <div className="flex flex-col items-start">
             <p className="text-label-m">{category.title}</p>
             <p className="flex items-start gap-2 text-body-xs text-shuttle-400">
@@ -116,36 +105,5 @@ export function HeroSection() {
         </FloatingCard>
       </div>
     </GridBackground>
-  );
-}
-
-function FloatingCard({ className, children }: { className?: string; children: ReactNode }) {
-  return (
-    <div
-      className={cn(
-        "absolute flex flex-col items-start gap-2 rounded-2xl bg-white p-4 text-shuttle-950 max-sm:scale-60 sm:max-md:scale-75",
-        className,
-      )}
-    >
-      {children}
-    </div>
-  );
-}
-
-// Grey 3D render tinted with a hard-light colour layer clipped to the shape's mask.
-function Ornament({ src, mask, tint, x, top, size, inset, flip }: HeroOrnament) {
-  return (
-    <div
-      className={cn("absolute isolate -translate-x-1/2", flip && "-scale-x-100")}
-      style={{ left: `calc(50% + ${x}px)`, top, width: size, height: size }}
-    >
-      <div className="absolute" style={{ inset }}>
-        <Image src={src} alt="" fill sizes={`${size}px`} className="object-cover" />
-        <div
-          className="absolute inset-0 mask-size-[100%_100%] mask-no-repeat mix-blend-hard-light"
-          style={{ backgroundColor: tints[tint], maskImage: `url(${mask})` }}
-        />
-      </div>
-    </div>
   );
 }

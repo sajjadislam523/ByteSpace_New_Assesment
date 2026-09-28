@@ -34,7 +34,7 @@ export type HeroOrnament = {
   flip?: boolean;
 };
 
-const springInset = "0 0.47% -0.47% -0.93%";
+export const springInset = "0 0.47% -0.47% -0.93%";
 const solidInset = "-0.22% 0.56% -0.28% -1.05%";
 
 // 3D shapes around the hero, in Figma paint order.
@@ -141,3 +141,23 @@ export const learningPaths = [
   icon: `/images/home/paths/${icon}.svg`,
   href: `/courses?${new URLSearchParams({ category: label })}`,
 }));
+
+// "Your Path to Professional Growth" stats.
+export const growthStats = [
+  { value: "12K", label: "Students" },
+  { value: "70+", label: "Courses" },
+  { value: "16", label: "Creators" },
+];
+
+// "Create & Manage Courses Easily." checklist and dashboard cards.
+export const creatorChecklist = [
+  "Share Your Expertise",
+  "Monetize Your Passion",
+  "Flexibility and Autonomy",
+  "Build a Community",
+];
+
+export const creatorRevenue = {
+  total: { title: "Total Revenue", period: "July 1-28", amount: "$120.29", change: "+12$", progress: 56 },
+  yearToDate: { title: "Year to Date", period: "2023", amount: "$1,200.38", change: "+12$" },
+};

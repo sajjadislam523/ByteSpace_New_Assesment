@@ -5,7 +5,7 @@ import { learningPaths } from "@/data/home";
 
 export function LearningPathsSection() {
   return (
-    <section aria-labelledby="paths-heading" className="pb-12 lg:pb-18">
+    <section aria-labelledby="paths-heading" className="pb-12 lg:pb-[120px]">
       <Container>
         <div className="mx-auto flex max-w-[917px] flex-col items-center gap-4 text-center">
           <h2
