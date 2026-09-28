@@ -104,3 +104,26 @@ export const partnerLogos = [
   { src: "/images/home/logos/logo-4.svg", width: 170, height: 41 },
   { src: "/images/home/logos/logo-5.svg", width: 169, height: 42 },
 ];
+
+// "Discover Your Passion" category chips, one array per centred Figma row. "Featured" shows all.
+export const discoverChipRows = [
+  [
+    "Featured",
+    "Music",
+    "Drawing & Painting",
+    "Marketing",
+    "Animation",
+    "Social Media",
+    "UI/UX Design",
+    "Creative Marketing",
+  ],
+  [
+    "Digital Illustration",
+    "Film & Video",
+    "Crafts",
+    "Freelance & Entrepreneurship",
+    "Graphic Design",
+    "Photography",
+  ],
+  ["Productivity", "Web Development", "Data Science", "Cooking"],
+];

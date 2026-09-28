@@ -26,6 +26,11 @@
   --text-heading-l--letter-spacing: -0.72px;
   --text-heading-l--font-weight: 600;
 
+  --text-heading-m: 44px;
+  --text-heading-m--line-height: 1.2;
+  --text-heading-m--letter-spacing: -0.44px;
+  --text-heading-m--font-weight: 600;
+
   --text-heading-s: 36px;
   --text-heading-s--line-height: 1.2;
   --text-heading-s--letter-spacing: -0.36px;
