@@ -35,7 +35,7 @@ export type FrameOrnament = {
 };
 
 export const springInset = "0 0.47% -0.47% -0.93%";
-const solidInset = "-0.22% 0.56% -0.28% -1.05%";
+export const solidInset = "-0.22% 0.56% -0.28% -1.05%";
 
 // 3D shapes around the hero, in Figma paint order.
 export const heroOrnaments: FrameOrnament[] = [

@@ -9,6 +9,8 @@ type HappyStudentsCardProps = {
   reviews: number;
   avatars: { src: string; alt: string }[];
   extra: string;
+  /** "lime" has a blue star and a dark "2K+" bubble. */
+  tone?: "white" | "lime";
   className?: string;
 };
 
@@ -19,15 +21,28 @@ export function HappyStudentsCard({
   reviews,
   avatars,
   extra,
+  tone = "white",
   className,
 }: HappyStudentsCardProps) {
+  const lime = tone === "lime";
+
   return (
-    <FloatingCard className={cn("w-[258px] justify-center", className)}>
+    <FloatingCard tone={tone} className={cn("w-[258px] justify-center", className)}>
       <div className="flex flex-col items-start">
         <p className="text-label-m">{label}</p>
-        <Rating value={rating} count={reviews} size="sm" />
+        <Rating
+          value={rating}
+          count={reviews}
+          size="sm"
+          starColor={lime ? "primary" : undefined}
+        />
       </div>
-      <AvatarStack avatars={avatars} extra={extra} size={43} />
+      <AvatarStack
+        avatars={avatars}
+        extra={extra}
+        size={43}
+        extraTone={lime ? "dark" : "lime"}
+      />
     </FloatingCard>
   );
 }

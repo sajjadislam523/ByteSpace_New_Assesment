@@ -21,7 +21,7 @@ export function Header({ active, minimal = false, className }: HeaderProps) {
   return (
     <header className={cn("relative z-20 text-shuttle-50", className)}>
       <Container className="grid h-[88px] grid-cols-[1fr_auto] items-center lg:h-[120px] lg:grid-cols-[1fr_auto_1fr] lg:items-start">
-        <Logo tone="light" className="lg:mt-[35px] xl:ml-0.5" />
+        <Logo tone="light" markOnly={minimal} className="lg:mt-[35px] xl:ml-0.5" />
 
         {!minimal && (
           <>
