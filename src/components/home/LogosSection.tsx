@@ -14,7 +14,7 @@ export function LogosSection() {
             <li key={logo.src} className="shrink-0">
               <Image
                 src={logo.src}
-                alt=""
+                alt={logo.alt}
                 width={logo.width}
                 height={logo.height}
                 unoptimized

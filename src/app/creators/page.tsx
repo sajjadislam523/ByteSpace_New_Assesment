@@ -27,9 +27,9 @@ export default function CreatorsPage() {
       <main className="flex-1">
         <Container className="py-12 lg:py-[72px]">
           <ul className="grid grid-cols-1 gap-10 md:grid-cols-2 xl:grid-cols-3">
-            {creators.map((creator) => (
+            {creators.map((creator, index) => (
               <li key={creator.slug}>
-                <CreatorCard creator={creator} />
+                <CreatorCard creator={creator} priority={index < 3} />
               </li>
             ))}
           </ul>

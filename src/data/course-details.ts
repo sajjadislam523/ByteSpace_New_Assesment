@@ -183,7 +183,7 @@ const titles: Record<string, string> = {
   "build-digital-asset": "Build Digital Asset: A Comprehensive Guide",
 };
 
-export const courseDetails: Record<string, CourseDetails> = Object.fromEntries(
+const courseDetails: Record<string, CourseDetails> = Object.fromEntries(
   courses.map((course) => [course.slug, { ...shared, title: titles[course.slug] ?? course.title }]),
 );
 

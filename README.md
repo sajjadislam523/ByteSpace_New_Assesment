@@ -1,6 +1,6 @@
 # ByteSpace
 
-ByteSpace is an online course marketplace front end, built from the ByteSpace Figma design. Students can browse courses by category, search the catalogue and move through results page by page. The UI follows the design's 1440px desktop layout and stays usable on tablet and mobile.
+ByteSpace is an online course marketplace front end, built from the ByteSpace Figma design. Students can explore the landing page, browse and search the course catalogue, read a course's details, lessons and reviews, visit creator profiles, and sign in or register. The UI follows the design's 1440px desktop layout and stays usable on tablet and mobile.
 
 ![Next.js](https://img.shields.io/badge/Next.js-16-000000?logo=nextdotjs)
 ![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=000)
@@ -31,6 +31,10 @@ ByteSpace is an online course marketplace front end, built from the ByteSpace Fi
 
 - **Design tokens from Figma.** Colours, the type scale and spacing are defined once as Tailwind v4 theme tokens (`bg-primary`, `text-heading-xs`, `text-label-m` …).
 - **Course catalogue.** The course grid has category filters, keyword search and pagination. Filter, search and page state are kept in the URL, so every view can be shared.
+- **Course details.** About, Lessons and Reviews tabs whose state lives in `?tab=`, a share button, and a reviews list that can be filtered by rating.
+- **Creator profiles.** A profile page per creator with a follow toggle and their courses, plus a creators list page.
+- **Auth pages.** Sign in and register forms with client-side validation and accessible error messages.
+- **Custom 404 page** for unknown routes and unknown course or creator links.
 - **Reusable UI kit.** Buttons, inputs, tabs, chips, pagination, rating, avatar stacks and badges are all typed React components.
 - **Component playground.** `/playground` renders every shared component on a single page for quick visual review.
 - **Responsive layout.** The desktop layout matches the 1440px frames; tablet and mobile get a collapsible menu, fewer grid columns and horizontally scrolling category chips.
@@ -49,11 +53,17 @@ ByteSpace is an online course marketplace front end, built from the ByteSpace Fi
 
 ## Pages
 
-| Route         | Description                                                                 | Status      |
-| ------------- | --------------------------------------------------------------------------- | ----------- |
-| `/`           | Landing page (hero shell for now)                                           | In progress |
-| `/courses`    | "Find Your Next Course": search, filters, category chips, course grid, pagination | Done        |
-| `/playground` | Every shared component on one page                                          | Done        |
+| Route               | Description                                                                          | Status |
+| ------------------- | ------------------------------------------------------------------------------------ | ------ |
+| `/`                 | Landing page: hero, partners, featured courses, learning paths, growth, creator tools, CTA, testimonials | Done   |
+| `/courses`          | "Find Your Next Course": search, filters, category chips, course grid, pagination     | Done   |
+| `/courses/[slug]`   | Course details with About / Lessons / Reviews tabs (`?tab=about\|lessons\|reviews`)  | Done   |
+| `/creators`         | Creators list                                                                        | Done   |
+| `/creators/[slug]`  | Creator profile: bio, stats, follow button and the creator's courses                 | Done   |
+| `/login`            | Sign in                                                                              | Done   |
+| `/register`         | Create an account                                                                    | Done   |
+| 404                 | Custom "page not found" page for unknown routes, courses and creators               | Done   |
+| `/playground`       | Every shared component on one page                                                   | Done   |
 
 The `/courses` page accepts these query parameters:
 
@@ -79,9 +89,9 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000). The course catalogue is at [/courses](http://localhost:3000/courses) and the component playground at [/playground](http://localhost:3000/playground).
+Open [http://localhost:3000](http://localhost:3000). The course catalogue is at [/courses](http://localhost:3000/courses), a course page at [/courses/build-digital-asset](http://localhost:3000/courses/build-digital-asset) and the component playground at [/playground](http://localhost:3000/playground).
 
-No environment variables are needed yet; all course data is mocked locally.
+No environment variables are needed yet; all course, creator and review data is mocked locally.
 
 ## Available scripts
 
@@ -97,26 +107,43 @@ No environment variables are needed yet; all course data is mocked locally.
 ```
 src/
 ├── app/
-│   ├── courses/page.tsx       # Course catalogue (reads q, category, page)
+│   ├── courses/
+│   │   ├── page.tsx           # Course catalogue (reads q, category, page)
+│   │   └── [slug]/page.tsx    # Course details (static params, metadata, ?tab=)
+│   ├── creators/
+│   │   ├── page.tsx           # Creators list
+│   │   └── [slug]/page.tsx    # Creator profile
+│   ├── login/page.tsx         # Sign in
+│   ├── register/page.tsx      # Register
 │   ├── playground/            # Component playground
+│   ├── not-found.tsx          # 404 page
 │   ├── fonts.ts               # Poppins, Satoshi, Clash Display (next/font/local)
-│   ├── globals.css            # Design tokens (@theme) + grid background utility
+│   ├── globals.css            # Design tokens (@theme), focus ring, grid background utility
 │   ├── layout.tsx             # Root layout, fonts, metadata
 │   └── page.tsx               # Landing page
 ├── components/
-│   ├── course/
-│   │   ├── CourseBrowser.tsx  # Filters + grid + pagination (client)
-│   │   └── CourseCard.tsx
+│   ├── auth/                  # AuthLayout, AuthCollage, LoginForm, RegisterForm, validation
+│   ├── course/                # CourseBrowser (client), CourseCard, CourseGrid
+│   ├── course-details/        # CourseHero, CoursePreview, CourseSidebar, CourseTabs,
+│   │                          # AboutTab, LessonsTab, ReviewsTab, ReviewList, ReviewCard,
+│   │                          # ReviewStars, ShareButton
+│   ├── creators/              # CreatorHero, CreatorStats (follow toggle), CreatorCard
+│   ├── home/                  # Landing page sections, floating cards and 3D ornaments
 │   ├── icons/                 # SVG icon components
-│   ├── layout/                # Header, MobileNav, Footer, Logo, Container, GridBackground
+│   ├── layout/                # Header, MobileNav, Footer, NewsletterForm, Logo,
+│   │                          # Container, GridBackground
 │   └── ui/                    # Button, Input, SearchBar, Chip, Tabs, CategoryChips,
 │                              # FilterBar, Pagination, AvatarStack, Rating, Badge
-├── data/courses.ts            # Mock courses, categories and catalogue helpers
+├── data/
+│   ├── courses.ts             # Mock courses, categories and catalogue helpers
+│   ├── course-details.ts      # Course details, lessons, modules and reviews
+│   ├── creators.ts            # Creators and their courses
+│   └── home.ts                # Landing page content
 ├── fonts/                     # Self-hosted font files and licences
 ├── lib/cn.ts                  # className helper
 └── types/course.ts            # Course type
 public/
-└── images/                    # Course thumbnails and student avatars
+└── images/                    # Course, creator, review, auth and landing page images
 ```
 
 ## Design system
@@ -190,13 +217,18 @@ import { ChevronDownIcon } from "@/components/icons";
 
 ## Data
 
-Course data is mocked in [`src/data/courses.ts`](src/data/courses.ts) and typed by [`src/types/course.ts`](src/types/course.ts). `filterCatalog({ category, query })` powers the catalogue page, which makes it easy to replace with API calls later.
+All data is mocked in [`src/data/`](src/data) and read through small helpers, which makes it easy to replace with API calls later:
+
+- [`courses.ts`](src/data/courses.ts): courses (typed by [`src/types/course.ts`](src/types/course.ts)); `filterCatalog({ category, query })` powers the catalogue page.
+- [`course-details.ts`](src/data/course-details.ts): `getCourseDetails(slug)` returns a course with its description, lessons, modules and reviews.
+- [`creators.ts`](src/data/creators.ts): `getCreator(slug)` and `getCreatorCourses(slug)`.
+- [`home.ts`](src/data/home.ts): landing page content.
 
 ## Accessibility
 
 - Semantic landmarks (`header`, `nav`, `main`, `footer`) and one `h1` per page
 - Keyboard-friendly tabs (arrow keys, Home/End) with correct ARIA roles
-- Visible focus rings on every interactive element
+- Visible focus rings on every interactive element; the ring turns lime on blue sections so it keeps its contrast
 - `aria-current` on the active nav item and current page number
 - Labelled form fields, error messages linked with `aria-describedby`
 - Decorative images use empty `alt`; ratings expose a readable label
@@ -205,14 +237,17 @@ Course data is mocked in [`src/data/courses.ts`](src/data/courses.ts) and typed 
 
 - [x] **Phase 1:** Project setup, design tokens, fonts, header, footer, grid background
 - [x] **Phase 2:** Shared UI components and component playground
-- [ ] **Phase 3:** Pages
+- [x] **Phase 3:** Pages
   - [x] Courses (search, filters, pagination)
-  - [ ] Home
-  - [ ] Course details (About / Lessons / Reviews)
-  - [ ] Creator profile
-  - [ ] Sign in / Register
-  - [ ] 404
-- [ ] **Phase 4:** Responsive polish, hover/focus/loading states
+  - [x] Home
+  - [x] Course details (About / Lessons / Reviews)
+  - [x] Creator profile and creators list
+  - [x] Sign in / Register
+  - [x] 404
+- [ ] **Phase 4:** Polish
+  - [x] Responsive layouts at 375, 768 and 1440px
+  - [x] Hover and keyboard focus states
+  - [ ] Loading states
 - [ ] **Phase 5:** Connect to an Express + MongoDB API
 
 ## Fonts and assets

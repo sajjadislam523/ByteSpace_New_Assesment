@@ -58,12 +58,9 @@ export function CourseBrowser({
   return (
     <>
       <FilterBar className="mt-12 lg:mt-[72px]" />
-      <CategoryChips
-        categories={categories}
-        value={category}
-        onValueChange={changeCategory}
-        className="mt-8"
-      />
+      <div id="categories" className="mt-8 scroll-mt-8">
+        <CategoryChips categories={categories} value={category} onValueChange={changeCategory} />
+      </div>
 
       <div ref={gridRef} className="scroll-mt-8 pt-12 lg:pt-[77px]">
         {query && (

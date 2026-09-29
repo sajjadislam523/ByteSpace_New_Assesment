@@ -3,44 +3,42 @@ import { Container } from "./Container";
 import { Logo } from "./Logo";
 import { NewsletterForm } from "./NewsletterForm";
 
-const linkColumns = [
+type FooterLink = { label: string; href?: string };
+
+const linkColumns: { title: string; links: FooterLink[] }[] = [
   {
     title: "Browse",
     links: [
       { label: "Featured Courses", href: "/courses" },
       { label: "Featured Categories", href: "/courses#categories" },
-      { label: "Business", href: "/courses?category=business" },
-      { label: "IT", href: "/courses?category=it" },
-      { label: "Design", href: "/courses?category=design" },
+      { label: "Business", href: "/courses?category=Business" },
+      { label: "IT", href: "/courses?category=IT" },
+      { label: "Design", href: "/courses?category=Design" },
     ],
   },
   {
     title: "Categories",
     links: [
-      { label: "Development", href: "/courses?category=development" },
-      { label: "Marketing", href: "/courses?category=marketing" },
-      { label: "Photography", href: "/courses?category=photography" },
-      { label: "Finance", href: "/courses?category=finance" },
-      { label: "Sport", href: "/courses?category=sport" },
+      { label: "Development", href: "/courses?category=Development" },
+      { label: "Marketing", href: "/courses?category=Marketing" },
+      { label: "Photography", href: "/courses?category=Photography" },
+      { label: "Finance", href: "/courses?category=Finance" },
+      { label: "Sport", href: "/courses?category=Sport" },
     ],
   },
   {
     title: "Platform",
     links: [
-      { label: "Become a Creator", href: "/creators/join" },
-      { label: "Affiliate Program", href: "/affiliate" },
-      { label: "Contact", href: "/contact" },
-      { label: "Help", href: "/help" },
-      { label: "About", href: "/about" },
+      { label: "Become a Creator", href: "/register?role=creator" },
+      { label: "Affiliate Program" },
+      { label: "Contact" },
+      { label: "Help" },
+      { label: "About" },
     ],
   },
 ];
 
-const legalLinks = [
-  { label: "Privacy Policy", href: "/privacy" },
-  { label: "Terms of Service", href: "/terms" },
-  { label: "Cookies Settings", href: "/cookies" },
-];
+const legalLinks = ["Privacy Policy", "Terms of Service", "Cookies Settings"];
 
 export function Footer() {
   return (
@@ -74,12 +72,16 @@ export function Footer() {
                 <ul className="flex flex-col gap-4 text-body-s min-[1440px]:pt-12">
                   {column.links.map((link) => (
                     <li key={link.label}>
-                      <Link
-                        href={link.href}
-                        className="block whitespace-nowrap transition-colors hover:text-primary"
-                      >
-                        {link.label}
-                      </Link>
+                      {link.href ? (
+                        <Link
+                          href={link.href}
+                          className="block whitespace-nowrap transition-colors hover:text-primary"
+                        >
+                          {link.label}
+                        </Link>
+                      ) : (
+                        <span className="block whitespace-nowrap">{link.label}</span>
+                      )}
                     </li>
                   ))}
                 </ul>
@@ -91,14 +93,9 @@ export function Footer() {
         <div className="flex flex-col gap-[22px] border-t border-shuttle-200 pt-[22px] text-body-xs md:flex-row md:items-start md:justify-between">
           <p>@ 2023 ByteSpace. All rights reserved.</p>
           <ul className="flex flex-wrap gap-6">
-            {legalLinks.map((link) => (
-              <li key={link.label}>
-                <Link
-                  href={link.href}
-                  className="whitespace-nowrap transition-colors hover:text-primary"
-                >
-                  {link.label}
-                </Link>
+            {legalLinks.map((label) => (
+              <li key={label} className="whitespace-nowrap">
+                {label}
               </li>
             ))}
           </ul>

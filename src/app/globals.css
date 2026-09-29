@@ -79,12 +79,17 @@
     @apply bg-white font-body text-shuttle-950 antialiased;
   }
 
+  :root {
+    --focus-ring: var(--color-primary);
+  }
+
   :focus-visible {
-    @apply outline-2 outline-offset-2 outline-primary;
+    @apply outline-2 outline-offset-2 outline-(--focus-ring);
   }
 }
 
 @utility bg-grid {
+  --focus-ring: var(--color-accent);
   background-color: var(--color-primary);
   background-image:
     linear-gradient(to right, var(--color-grid-line) 1px, transparent 1px),

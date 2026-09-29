@@ -19,7 +19,7 @@ type ButtonAsButton = BaseProps &
 type ButtonAsLink = BaseProps &
   Omit<ComponentPropsWithoutRef<typeof Link>, keyof BaseProps> & { href: string };
 
-export type ButtonProps = ButtonAsButton | ButtonAsLink;
+type ButtonProps = ButtonAsButton | ButtonAsLink;
 
 const variants: Record<Variant, string> = {
   primary: "bg-accent text-shuttle-950 hover:bg-accent-hover",

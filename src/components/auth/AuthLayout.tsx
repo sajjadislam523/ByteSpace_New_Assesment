@@ -26,7 +26,7 @@ export function AuthLayout({ title, description, children }: AuthLayoutProps) {
           <AuthCollage className="top-[185px] left-[-25px] hidden origin-top-left lg:block lg:max-xl:scale-[0.56] xl:max-[1440px]:scale-[0.84]" />
         </div>
 
-        <div className="flex w-full flex-col rounded-3xl bg-white p-6 text-shuttle-950 max-lg:mx-auto max-lg:max-w-[579px] sm:p-10 xl:h-[784px] xl:px-[63px] xl:pt-[61px] xl:pb-10">
+        <div className="flex w-full flex-col rounded-3xl bg-white p-6 text-shuttle-950 [--focus-ring:var(--color-primary)] max-lg:mx-auto max-lg:max-w-[579px] sm:p-10 xl:h-[784px] xl:px-[63px] xl:pt-[61px] xl:pb-10">
           {children}
         </div>
       </Container>

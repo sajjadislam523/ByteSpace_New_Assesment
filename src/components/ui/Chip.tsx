@@ -10,7 +10,7 @@ export function Chip({ active = false, className, ...props }: ChipProps) {
       className={cn(
         "inline-flex shrink-0 items-center justify-center rounded-3xl px-4 py-3 text-label-m whitespace-nowrap transition-colors",
         active
-          ? "bg-accent text-shuttle-950"
+          ? "bg-accent text-shuttle-950 hover:bg-accent-hover"
           : "bg-shuttle-50 text-shuttle-700 hover:bg-shuttle-200/60 hover:text-shuttle-950",
         className,
       )}

@@ -33,8 +33,12 @@ export function Input({
       <div
         className={cn(
           "flex h-[52px] w-full items-center gap-2 bg-white px-6 text-shuttle-400 transition-colors",
+          "focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-(--focus-ring)",
           bordered ? "rounded-xl border" : "rounded-3xl",
-          bordered && (error ? "border-red-500" : "border-shuttle-100 focus-within:border-primary"),
+          bordered &&
+            (error
+              ? "border-red-500"
+              : "border-shuttle-100 hover:border-shuttle-200 focus-within:border-primary"),
         )}
       >
         {icon}

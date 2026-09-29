@@ -7,7 +7,7 @@ export function CoursePreview({ image, title, className }: CoursePreviewProps) {
   return (
     <div
       className={cn(
-        "relative aspect-[720/479] w-full overflow-hidden rounded-3xl bg-[#443131]",
+        "relative aspect-[720/479] w-full overflow-hidden rounded-3xl bg-[#443131] [--focus-ring:white]",
         className,
       )}
     >
@@ -29,6 +29,7 @@ export function CoursePreview({ image, title, className }: CoursePreviewProps) {
           alt=""
           width={72}
           height={72}
+          priority
           unoptimized
           className="size-12 sm:size-[72px]"
         />

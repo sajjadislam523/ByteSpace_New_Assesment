@@ -1,8 +1,8 @@
 export type AuthField = "fullName" | "email" | "password";
-export type AuthValues = Partial<Record<AuthField, string>>;
+type AuthValues = Partial<Record<AuthField, string>>;
 export type AuthErrors = Partial<Record<AuthField, string>>;
 
-export const MIN_PASSWORD_LENGTH = 8;
+const MIN_PASSWORD_LENGTH = 8;
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export function validateAuth(values: AuthValues, fields: readonly AuthField[]): AuthErrors {

@@ -26,7 +26,7 @@ export function MobileNav({ active }: { active?: NavKey }) {
         id="mobile-nav"
         aria-label="Mobile"
         className={cn(
-          "absolute inset-x-5 top-[88px] z-50 flex-col gap-1 rounded-3xl bg-white p-3 shadow-[0_16px_40px_rgba(0,0,0,0.16)] sm:inset-x-8",
+          "absolute inset-x-5 top-[88px] z-50 flex-col gap-1 rounded-3xl bg-white p-3 shadow-[0_16px_40px_rgba(0,0,0,0.16)] [--focus-ring:var(--color-primary)] sm:inset-x-8",
           open ? "flex" : "hidden",
         )}
       >
