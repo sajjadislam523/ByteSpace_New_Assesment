@@ -93,11 +93,11 @@ export const heroOrnaments: FrameOrnament[] = [
 ];
 
 export const partnerLogos = [
-  { src: "/images/home/logos/logo-1.svg", width: 167, height: 41 },
-  { src: "/images/home/logos/logo-2.svg", width: 168, height: 41 },
-  { src: "/images/home/logos/logo-3.svg", width: 170, height: 41 },
-  { src: "/images/home/logos/logo-4.svg", width: 170, height: 41 },
-  { src: "/images/home/logos/logo-5.svg", width: 169, height: 42 },
+  { src: "/images/home/logos/logo-1.svg", alt: "Logoipsum", width: 167, height: 41 },
+  { src: "/images/home/logos/logo-2.svg", alt: "Logoipsum", width: 168, height: 41 },
+  { src: "/images/home/logos/logo-3.svg", alt: "Logoipsum", width: 170, height: 41 },
+  { src: "/images/home/logos/logo-4.svg", alt: "Logoipsum", width: 170, height: 41 },
+  { src: "/images/home/logos/logo-5.svg", alt: "Logoipsum", width: 169, height: 42 },
 ];
 
 export const discoverChipRows = [

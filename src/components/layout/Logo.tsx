@@ -7,7 +7,7 @@ type LogoProps = {
   className?: string;
 };
 
-export function LogoMark({ className }: { className?: string }) {
+function LogoMark({ className }: { className?: string }) {
   return (
     <svg
       width="28.875"
@@ -36,7 +36,11 @@ export function LogoMark({ className }: { className?: string }) {
 export function Logo({ tone = "light", markOnly = false, className }: LogoProps) {
   if (markOnly) {
     return (
-      <Link href="/" aria-label="ByteSpace home" className={cn("inline-flex w-fit", className)}>
+      <Link
+        href="/"
+        aria-label="ByteSpace home"
+        className={cn("inline-flex w-fit transition-opacity hover:opacity-80", className)}
+      >
         <LogoMark />
       </Link>
     );
@@ -46,7 +50,10 @@ export function Logo({ tone = "light", markOnly = false, className }: LogoProps)
     <Link
       href="/"
       aria-label="ByteSpace home"
-      className={cn("inline-flex items-start gap-[8.125px]", className)}
+      className={cn(
+        "inline-flex items-start gap-[8.125px] transition-opacity hover:opacity-80",
+        className,
+      )}
     >
       <LogoMark />
       <span

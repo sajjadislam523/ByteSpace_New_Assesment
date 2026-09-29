@@ -55,13 +55,9 @@ export function Header({ active, minimal = false, className }: HeaderProps) {
                   </li>
                 ))}
               </ul>
-              <Link
-                href="/cart"
-                aria-label="Shopping bag"
-                className="flex size-10 items-center justify-center transition-opacity hover:opacity-80 lg:size-6"
-              >
+              <span className="flex size-10 items-center justify-center lg:size-6">
                 <ShoppingBagIcon />
-              </Link>
+              </span>
               <MobileNav active={active} />
             </div>
           </>

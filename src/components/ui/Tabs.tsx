@@ -4,7 +4,7 @@ import { useId, useRef, useState, type KeyboardEvent, type ReactNode } from "rea
 import { cn } from "@/lib/cn";
 import { Chip } from "./Chip";
 
-export type TabItem = {
+type TabItem = {
   value: string;
   label: string;
   content: ReactNode;

@@ -4,7 +4,9 @@ import type { Creator } from "@/data/creators";
 
 const pill = "flex items-center gap-1 rounded-3xl bg-shuttle-50 px-4 py-2 text-label-m";
 
-export function CreatorCard({ creator }: { creator: Creator }) {
+type CreatorCardProps = { creator: Creator; priority?: boolean };
+
+export function CreatorCard({ creator, priority = false }: CreatorCardProps) {
   return (
     <article className="relative flex h-full flex-col gap-6 rounded-3xl border border-shuttle-200 bg-white p-6 transition-colors hover:border-shuttle-400">
       <div className="flex items-center gap-4">
@@ -13,6 +15,7 @@ export function CreatorCard({ creator }: { creator: Creator }) {
           alt=""
           width={72}
           height={72}
+          priority={priority}
           className="size-[72px] shrink-0 rounded-3xl object-cover"
         />
         <div className="flex flex-col items-start gap-2">

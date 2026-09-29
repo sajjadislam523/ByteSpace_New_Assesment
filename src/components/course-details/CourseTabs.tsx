@@ -10,7 +10,7 @@ const tabs = [
   { value: "reviews", label: "Reviews" },
 ] as const;
 
-export type CourseTab = (typeof tabs)[number]["value"];
+type CourseTab = (typeof tabs)[number]["value"];
 type Panels = Record<CourseTab, ReactNode>;
 
 type CourseTabsViewProps = {

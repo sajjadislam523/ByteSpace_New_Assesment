@@ -46,6 +46,7 @@ export function HeroSection() {
           aria-hidden="true"
           width={1149}
           height={1149}
+          priority
           unoptimized
           className="absolute top-[12.94%] left-[calc(50%-0.5px)] h-auto w-[198.79%] max-w-none -translate-x-1/2"
         />

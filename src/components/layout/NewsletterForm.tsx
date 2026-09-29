@@ -32,7 +32,7 @@ export function NewsletterForm() {
           setSubmitted(false);
         }}
         placeholder="Enter your email"
-        className="h-[52px] w-full rounded-full border border-shuttle-200 bg-white px-6 text-body-m leading-[1.6] text-shuttle-950 placeholder:text-shuttle-950 focus:border-primary focus:outline-none sm:w-[376px]"
+        className="h-[52px] w-full rounded-full border border-shuttle-200 bg-white px-6 text-body-m leading-[1.6] text-shuttle-950 transition-colors placeholder:text-shuttle-950 hover:border-shuttle-400 focus:border-primary sm:w-[376px]"
       />
       <Button type="submit" className="shrink-0">
         Search

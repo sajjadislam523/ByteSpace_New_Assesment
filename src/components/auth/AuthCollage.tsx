@@ -13,10 +13,10 @@ export function AuthCollage({ className }: { className?: string }) {
       className={cn("pointer-events-none absolute h-[585px] w-[548px]", className)}
     >
       <div className="absolute top-[89px] left-[25px] w-[373px]">
-        <CourseCard course={courses[1]} tone="showcase" />
+        <CourseCard course={courses[1]} tone="showcase" priority />
       </div>
       <div className="absolute top-0 left-[136px] w-[373px]">
-        <CourseCard course={courses[2]} tone="showcase" />
+        <CourseCard course={courses[2]} tone="showcase" priority />
       </div>
       <HappyStudentsCard
         {...heroCards.students}

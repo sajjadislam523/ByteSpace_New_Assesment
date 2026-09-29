@@ -55,7 +55,9 @@ export function Pagination({
                 onClick={() => onPageChange(number)}
                 className={cn(
                   "text-body-l transition-colors",
-                  current ? "font-medium text-primary" : "text-shuttle-950 hover:text-primary",
+                  current
+                    ? "font-medium text-primary underline-offset-4 hover:underline"
+                    : "text-shuttle-950 hover:text-primary",
                 )}
               >
                 {number}

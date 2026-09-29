@@ -46,6 +46,7 @@ export function GrowthSection() {
                 src="/images/home/hero-person.png"
                 alt="Smiling student with a headset holding a laptop"
                 fill
+                loading="eager"
                 sizes="(min-width: 640px) 577px, calc(100vw - 40px)"
                 className="object-cover"
                 style={{ filter: photoShadow }}
