@@ -18,7 +18,7 @@ export async function generateMetadata({
 }: PageProps<"/creators/[slug]">): Promise<Metadata> {
   const { slug } = await params;
   const creator = getCreator(slug);
-  if (!creator) return {};
+  if (!creator) return { title: "Page not found" };
   return { title: creator.name, description: creator.tagline };
 }
 
